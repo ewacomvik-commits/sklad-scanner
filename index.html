@@ -72,11 +72,14 @@
         </div>
     </div>
 
-    <script>
+        <script>
         // Инициализация Telegram Web App
         const tg = window.Telegram.WebApp;
         tg.ready();
-        tg.expand(); // Разворачиваем на весь экран
+        tg.expand();
+        
+        // Показываем, что Mini App принадлежит боту
+        tg.MainButton.setText('Отправить').show();
 
         function startScan() {
             const statusDiv = document.getElementById('status');
@@ -86,18 +89,18 @@
             tg.showScanQrPopup({
                 text: 'Наведите камеру на QR-код этикетки'
             }, (scannedText) => {
-                // Это срабатывает после успешного сканирования
                 console.log('Отсканировано:', scannedText);
                 
                 statusDiv.innerHTML = '✅ QR считан, отправляю данные...';
                 
                 // Отправляем данные в бота
                 tg.sendData(scannedText);
+                tg.close();
                 
-                // Закрываем сканер (возвращаем true)
                 return true;
             });
         }
     </script>
 </body>
+
 </html>
