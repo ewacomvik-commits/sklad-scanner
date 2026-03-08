@@ -201,29 +201,9 @@
         // Запускаем проверку при загрузке
         initApp();
 
-        // Добавляем кнопку для тестовой отправки
-        const testButton = document.createElement('button');
-        testButton.textContent = '📤 Тест отправки';
-        testButton.style.cssText = `
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 20px;
-            width: 100%;
-        `;
-        testButton.onclick = function() {
-            const testData = "TEST:Привет от Mini App";
-            console.log("Отправляю тест:", testData);
-            tg.sendData(testData);
-            setStatus("✅ Тестовые данные отправлены!", "success");
-        };
-        document.querySelector('.container').appendChild(testButton);
-        
+                
     </script>
 </body>
 </html>
+
 
