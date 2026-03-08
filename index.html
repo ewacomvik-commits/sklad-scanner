@@ -167,6 +167,8 @@
                         
                         // Отправляем данные в бота
                         tg.sendData(scannedText);
+
+                        tg.close();  // Закрываем Mini App и возвращаемся в чат
                         
                         // Закрываем сканер и Mini App
                         return true;
@@ -224,3 +226,4 @@
     </script>
 </body>
 </html>
+
